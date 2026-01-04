@@ -102,14 +102,14 @@ h6 {
   font-size: 1.2rem;
 }
 
-/* Vintage Photo Treatment */
+/* Photo Treatment - Bright and Natural */
 .vintage-photo {
-  filter: sepia(0.4) saturate(0.8) contrast(0.95) brightness(0.9);
+  filter: saturate(1.1) contrast(1.05) brightness(1);
   transition: filter 0.8s ease;
 }
 
 .vintage-photo:hover {
-  filter: sepia(0.2) saturate(0.9) contrast(1) brightness(0.95);
+  filter: saturate(1.2) contrast(1.1) brightness(1.05);
 }
 
 /* Fade In Animation */

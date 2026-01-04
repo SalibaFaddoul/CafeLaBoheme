@@ -159,6 +159,72 @@ const CafeHome = () => {
                 </div>
             </section>
 
+            {/* --- Seasonal Sips --- */}
+            <section className="py-40 px-6 md:px-12 bg-background relative overflow-hidden">
+                <div className="max-w-[1300px] mx-auto">
+
+                    {/* Section Header */}
+                    <div className="text-center mb-32 animate-fade-in">
+                        <div className="text-accent/30 text-2xl mb-8">✦</div>
+                        <span className="text-secondary/60 text-[10px] uppercase tracking-[0.5em] block mb-6">Limited Time</span>
+                        <h2 className="text-5xl md:text-7xl font-serif text-foreground leading-tight mb-6">
+                            Seasonal <span className="italic text-accent">Sips</span>
+                        </h2>
+                        <p className="text-foreground/40 text-xl font-serif italic max-w-xl mx-auto">
+                            A rotating collection of handcrafted lattes, inspired by the changing seasons and the spice markets of the world.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16">
+                        {[
+                            {
+                                name: "Turmeric Latte",
+                                desc: "Golden milk with warming spices and a hint of honey.",
+                                image: "/Tumeric Latte.png"
+                            },
+                            {
+                                name: "Pistachio Latte",
+                                desc: "Silky espresso with house-made pistachio cream.",
+                                image: "/Pistachio.png"
+                            },
+                            {
+                                name: "Cardamom Latte",
+                                desc: "Aromatic cardamom infused into velvety steamed milk.",
+                                image: "/Cardamom.png"
+                            },
+                            {
+                                name: "Lavender Latte",
+                                desc: "Delicate lavender blossoms meet bold espresso.",
+                                image: "/Lavender.png"
+                            }
+                        ].map((item, i) => (
+                            <div key={i} className="group text-center">
+                                <div className="vintage-border p-2 mb-8">
+                                    <div className="aspect-square overflow-hidden">
+                                        <img
+                                            src={item.image}
+                                            alt={item.name}
+                                            className="w-full h-full object-cover vintage-photo group-hover:scale-105 transition-transform duration-1000"
+                                        />
+                                    </div>
+                                </div>
+                                <h4 className="text-xl md:text-2xl font-serif italic text-foreground mb-3 group-hover:text-accent transition-colors duration-500">{item.name}</h4>
+                                <p className="text-foreground/40 text-sm font-serif italic px-2">{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Bottom Ornament */}
+                    <div className="text-center mt-24">
+                        <div className="flex items-center justify-center gap-6">
+                            <div className="h-px w-16 bg-accent/20"></div>
+                            <span className="text-accent/30 text-lg">❧</span>
+                            <div className="h-px w-16 bg-accent/20"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* --- Hours & Location --- */}
             <section id="visit" className="py-40 px-6 md:px-12 bg-background relative">
                 <div className="max-w-[1100px] mx-auto">
