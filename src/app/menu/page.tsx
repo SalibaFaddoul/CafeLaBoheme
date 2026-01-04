@@ -6,131 +6,185 @@ import Footer from '../../components/Footer';
 
 export default function MenuPage() {
     return (
-        <div className="min-h-screen bg-[#0F0A0A] text-[#E6DCCD] selection:bg-[#C89F65] selection:text-[#0F0A0A]">
+        <div className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-background">
             <Navigation />
 
-            {/* Background Texture (Subtle) */}
-            <div className="fixed inset-0 pointer-events-none opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(#C89F65 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
+            {/* Background Texture (Hand-crafted vibe) */}
+            <div className="fixed inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(var(--accent) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
             {/* Spacer for fixed nav */}
             <div className="h-32"></div>
 
             {/* --- Menu Section --- */}
-            <section id="menu" className="py-24 px-6 md:px-12 relative z-10">
-                <div className="max-w-[900px] mx-auto">
+            <section id="menu" className="py-24 px-6 md:px-12 relative z-10 overflow-hidden">
+                <div className="max-w-[1100px] mx-auto">
                     {/* Header */}
-                    <div className="text-center mb-24 animate-fade-in-up">
-                        <span className="text-[#9C5C5E] font-bold text-xs uppercase tracking-[0.4em] block mb-6">Est. 1973</span>
-                        <h1 className="text-6xl md:text-8xl font-serif text-[#E6DCCD] tracking-tight">
-                            Table <span className="italic text-[#C89F65]">Fare</span>
+                    <div className="text-center mb-32 animate-fade-in">
+                        <span className="text-accent font-bold text-[10px] uppercase tracking-[0.8em] block mb-6">Established 1973</span>
+                        <h1 className="text-6xl md:text-[8rem] font-serif text-foreground tracking-tighter leading-none group">
+                            Table <span className="italic text-accent group-hover:underline decoration-accent/10 transition-all duration-700">Fare</span>
                         </h1>
+                        <div className="h-[1px] w-24 bg-accent/20 mx-auto mt-12"></div>
                     </div>
 
                     {/* Menu Content */}
-                    <div className="grid grid-cols-1 gap-24">
+                    <div className="grid grid-cols-1 gap-40">
+
                         {/* Breakfast */}
-                        <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-                            <div className="flex items-center gap-6 mb-12">
-                                <h3 className="font-serif text-3xl md:text-4xl text-[#C89F65] italic">Breakfast</h3>
-                                <div className="h-[1px] flex-grow bg-[#2A2422]"></div>
+                        <div className="animate-fade-in">
+                            <div className="flex flex-col items-center gap-4 mb-20 text-center">
+                                <h3 className="font-serif text-5xl md:text-7xl text-accent italic">Breakfast</h3>
+                                <p className="text-foreground/40 font-serif italic text-lg">Served daily to the early risers of the Mission.</p>
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-24">
                                 {[
-                                    { name: "Steel Cut Oatmeal", desc: "Served with fresh seasonal fruit." },
-                                    { name: "Bacon, Egg & Cheese", desc: "Served on a toasted bagel." },
-                                    { name: "Smoked Alaskan Salmon", desc: "On a bagel with cream cheese & veggies." },
-                                    { name: "Granola Breakfast Bowl", desc: "Crunchy granola with fresh fruit." },
-                                    { name: "Croissant Sandwich", desc: "Black Forest ham, egg & cheese." },
-                                    { name: "Greek Omelette", desc: "3 eggs with feta, spinach & olives." },
-                                    { name: "Denver Omelette", desc: "3 eggs with ham, onions & peppers." },
+                                    { name: "Steel Cut Oatmeal", desc: "Served with fresh seasonal fruit.", image: "/Oatmeal Bowl.png" },
+                                    { name: "Bacon, Egg & Cheese", desc: "Served on a toasted bagel.", image: "/Ham and Cheese Sandwhich.png" },
+                                    { name: "Smoked Alaskan Salmon", desc: "On a bagel with cream cheese & veggies.", image: "/SmokedSalmonBagel.png" },
+                                    { name: "Granola Breakfast Bowl", desc: "Crunchy granola with fresh fruit.", image: "/GranolaBowl.png" },
+                                    { name: "Croissant Sandwich", desc: "Black Forest ham, egg & cheese.", image: "/Crossiant.png" },
+                                    { name: "Greek Omelette", desc: "3 eggs with feta, spinach & olives.", image: "/Greek Salad.png" },
+                                    { name: "Denver Omelette", desc: "3 eggs with ham, onions & peppers.", image: "/DenverOmlette.png" },
                                     { name: "Acai Berry Bowl", desc: "Blended acai topped with granola & fruit." }
                                 ].map((item, i) => (
-                                    <div key={i} className="group cursor-default">
-                                        <div className="flex justify-between items-baseline border-b border-[#2A2422] pb-2 mb-2 group-hover:border-[#C89F65] transition-colors duration-500">
-                                            <h4 className="text-xl font-sans font-bold text-[#E6DCCD] tracking-wide">{item.name}</h4>
+                                    <div key={i} className="group cursor-default flex flex-col gap-8">
+                                        {item.image && (
+                                            <div className="relative p-1 vintage-border aspect-[4/3] overflow-hidden">
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.name}
+                                                    className="w-full h-full object-cover grayscale-[0.1] sepia-[0.2] transition-transform duration-1000 group-hover:scale-105"
+                                                />
+                                                <div className="absolute inset-0 bg-background/10 mix-blend-overlay"></div>
+                                            </div>
+                                        )}
+                                        <div className="space-y-4 px-2">
+                                            <div className="flex justify-between items-baseline border-b border-accent/10 pb-3 group-hover:border-accent/40 transition-colors duration-500">
+                                                <h4 className="text-2xl font-serif italic text-foreground tracking-wide">{item.name}</h4>
+                                            </div>
+                                            <p className="font-serif italic text-lg text-foreground/50 leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+                                                {item.desc}
+                                            </p>
                                         </div>
-                                        <p className="font-sans text-sm text-[#908680] leading-relaxed group-hover:text-[#E6DCCD] transition-colors duration-300">
-                                            {item.desc}
-                                        </p>
                                     </div>
                                 ))}
                             </div>
                         </div>
 
-                        {/* Salads, Soups & Sandwiches */}
-                        <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                            <div className="flex items-center gap-6 mb-12">
-                                <h3 className="font-serif text-3xl md:text-4xl text-[#C89F65] italic">Lunch</h3>
-                                <div className="h-[1px] flex-grow bg-[#2A2422]"></div>
+                        {/* Lunch */}
+                        <div className="animate-fade-in">
+                            <div className="flex flex-col items-center gap-4 mb-20 text-center">
+                                <h3 className="font-serif text-5xl md:text-7xl text-accent italic">Lunch</h3>
+                                <p className="text-foreground/40 font-serif italic text-lg">A hearty selection for the afternoon gathering.</p>
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-24">
                                 {[
-                                    { name: "The Last Salad", desc: "A house favorite with mixed greens & special dressing." },
-                                    { name: "Quinoa Beet Bowl", desc: "Healthy grains with roasted beets." },
-                                    { name: "Chicken Caesar Salad", desc: "Classic romaine, parmesan & croutons." },
-                                    { name: "Jerusalem Falafel Sandwich", desc: "Crispy falafel with tahini in pita." },
-                                    { name: "Turkey Melt", desc: "Hot turkey with melted cheese on sourdough." },
-                                    { name: "Baked Chicken Panini", desc: "With pepper jack cheese." },
-                                    { name: "Homemade Lentil Soup", desc: "Hearty and warming (Vegan)." },
-                                    { name: "Soup & Half Sandwich", desc: "Daily soup with your choice of sandwich." }
+                                    { name: "The Last Salad", desc: "A house favorite with mixed greens & special dressing.", image: "/SaladsBoth.png" },
+                                    { name: "Quinoa Beet Bowl", desc: "Healthy grains with roasted beets.", image: "/QuinoaBowl.png" },
+                                    { name: "Beet Salad", desc: "Fresh roasted beets on vibrant greens.", image: "/BeetSalad.png" },
+                                    { name: "Chicken Caesar Salad", desc: "Classic romaine, parmesan & croutons.", image: "/Chicken Salad.png" },
+                                    { name: "Jerusalem Falafel Sandwich", desc: "Crispy falafel with tahini in pita.", image: "/Falaffel Sandwhich.png" },
+                                    { name: "California Sandwich", desc: "Fresh flavors from the coast.", image: "/CalfironiaSanwhich.png" },
+                                    { name: "Turkey Melt", desc: "Hot turkey with melted cheese on sourdough.", image: "/CalfironiaSanwhich.png" },
+                                    { name: "Baked Chicken Panini", desc: "With pepper jack cheese.", image: "/Panini Press.png" },
+                                    { name: "Homemade Lentil Soup", desc: "Hearty and warming (Vegan).", image: "/LentilSoup.png" },
+                                    { name: "Soup & Half Sandwich", desc: "Daily soup with your choice of sandwich.", image: "/Tortilla Soup.png" }
                                 ].map((item, i) => (
-                                    <div key={i} className="group cursor-default">
-                                        <div className="flex justify-between items-baseline border-b border-[#2A2422] pb-2 mb-2 group-hover:border-[#C89F65] transition-colors duration-500">
-                                            <h4 className="text-xl font-sans font-bold text-[#E6DCCD] tracking-wide">{item.name}</h4>
+                                    <div key={i} className="group cursor-default flex flex-col gap-8">
+                                        {item.image && (
+                                            <div className="relative p-1 vintage-border aspect-[4/3] overflow-hidden">
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.name}
+                                                    className="w-full h-full object-cover grayscale-[0.1] sepia-[0.2] transition-transform duration-1000 group-hover:scale-105"
+                                                />
+                                                <div className="absolute inset-0 bg-background/10 mix-blend-overlay"></div>
+                                            </div>
+                                        )}
+                                        <div className="space-y-4 px-2">
+                                            <div className="flex justify-between items-baseline border-b border-accent/10 pb-3 group-hover:border-accent/40 transition-colors duration-500">
+                                                <h4 className="text-2xl font-serif italic text-foreground tracking-wide">{item.name}</h4>
+                                            </div>
+                                            <p className="font-serif italic text-lg text-foreground/50 leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+                                                {item.desc}
+                                            </p>
                                         </div>
-                                        <p className="font-sans text-sm text-[#908680] leading-relaxed group-hover:text-[#E6DCCD] transition-colors duration-300">
-                                            {item.desc}
-                                        </p>
                                     </div>
                                 ))}
                             </div>
                         </div>
 
                         {/* Plates */}
-                        <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                            <div className="flex items-center gap-6 mb-12">
-                                <h3 className="font-serif text-3xl md:text-4xl text-[#C89F65] italic">Plates</h3>
-                                <div className="h-[1px] flex-grow bg-[#2A2422]"></div>
+                        <div className="animate-fade-in">
+                            <div className="flex flex-col items-center gap-4 mb-20 text-center">
+                                <h3 className="font-serif text-5xl md:text-7xl text-accent italic">Plates</h3>
+                                <p className="text-foreground/40 font-serif italic text-lg">Shared traditions from our home to yours.</p>
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-24">
                                 {[
-                                    { name: "Middle Eastern Plate", desc: "Hummus, baba ghanoush, tabouli, falafel & pita." },
-                                    { name: "Hummus Plate", desc: "Creamy hummus served with warm pita." },
-                                    { name: "Gyros Plate", desc: "Seasoned meat with tzatziki and salad." },
+                                    { name: "Middle Eastern Plate", desc: "Hummus, baba ghanoush, tabouli, falafel & pita.", image: "/Mezza Cafe La Boheme.png" },
+                                    { name: "Hummus Plate", desc: "Creamy hummus served with warm pita.", image: "/Hummus Plate.png" },
+                                    { name: "Gyros Plate", desc: "Seasoned meat with tzatziki and salad.", image: "/Gyros Plate.png" },
                                 ].map((item, i) => (
-                                    <div key={i} className="group cursor-default">
-                                        <div className="flex justify-between items-baseline border-b border-[#2A2422] pb-2 mb-2 group-hover:border-[#C89F65] transition-colors duration-500">
-                                            <h4 className="text-xl font-sans font-bold text-[#E6DCCD] tracking-wide">{item.name}</h4>
+                                    <div key={i} className="group cursor-default flex flex-col gap-8">
+                                        {item.image && (
+                                            <div className="relative p-1 vintage-border aspect-[4/3] overflow-hidden">
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.name}
+                                                    className="w-full h-full object-cover grayscale-[0.1] sepia-[0.2] transition-transform duration-1000 group-hover:scale-105"
+                                                />
+                                                <div className="absolute inset-0 bg-background/10 mix-blend-overlay"></div>
+                                            </div>
+                                        )}
+                                        <div className="space-y-4 px-2">
+                                            <div className="flex justify-between items-baseline border-b border-accent/10 pb-3 group-hover:border-accent/40 transition-colors duration-500">
+                                                <h4 className="text-2xl font-serif italic text-foreground tracking-wide">{item.name}</h4>
+                                            </div>
+                                            <p className="font-serif italic text-lg text-foreground/50 leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+                                                {item.desc}
+                                            </p>
                                         </div>
-                                        <p className="font-sans text-sm text-[#908680] leading-relaxed group-hover:text-[#E6DCCD] transition-colors duration-300">
-                                            {item.desc}
-                                        </p>
                                     </div>
                                 ))}
                             </div>
                         </div>
 
-                        {/* Drinks */}
-                        <div className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-                            <div className="flex items-center gap-6 mb-12">
-                                <h3 className="font-serif text-3xl md:text-4xl text-[#C89F65] italic">Sips</h3>
-                                <div className="h-[1px] flex-grow bg-[#2A2422]"></div>
+                        {/* Sips */}
+                        <div className="animate-fade-in">
+                            <div className="flex flex-col items-center gap-4 mb-20 text-center">
+                                <h3 className="font-serif text-5xl md:text-7xl text-accent italic">Sips</h3>
+                                <p className="text-foreground/40 font-serif italic text-lg">The soul of Café La Bohème, poured with care.</p>
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-24">
                                 {[
-                                    { name: "Mexican Mocha", desc: "Spiced chocolate espresso." },
-                                    { name: "Kale Smoothie", desc: "Green power blend." },
-                                    { name: "Mango Mania", desc: "Tropical fruit smoothie." },
-                                    { name: "Cappuccino", desc: "Espresso with microfoam." },
-                                    { name: "Spicy Chia Drink", desc: "Energizing signature blend." },
+                                    { name: "Mexican Mocha", desc: "Spiced chocolate espresso.", image: "/mexican-mocha.png" },
+                                    { name: "Kale Smoothie", desc: "Green power blend.", image: "/GardenKaleSmoothie.png" },
+                                    { name: "Mango Mania", desc: "Tropical fruit smoothie.", image: "/Mexican Blended Drink.png" },
+                                    { name: "Cappuccino", desc: "Espresso with microfoam.", image: "/Cappacuino .png" },
+                                    { name: "Spicy Chia Drink", desc: "Energizing signature blend.", image: "/Tea.png" },
+                                    { name: "Caramel Latte", desc: "Velvety caramel and espresso.", image: "/Carmal Latte.png" },
+                                    { name: "Iced Coffee", desc: "Cold brewed to perfection.", image: "/Iced Coffee.png" }
                                 ].map((item, i) => (
-                                    <div key={i} className="group cursor-default">
-                                        <div className="flex justify-between items-baseline border-b border-[#2A2422] pb-2 mb-2 group-hover:border-[#C89F65] transition-colors duration-500">
-                                            <h4 className="text-xl font-sans font-bold text-[#E6DCCD] tracking-wide">{item.name}</h4>
+                                    <div key={i} className="group cursor-default flex flex-col gap-8">
+                                        {item.image && (
+                                            <div className="relative p-1 vintage-border aspect-square overflow-hidden">
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.name}
+                                                    className="w-full h-full object-cover grayscale-[0.1] sepia-[0.1] transition-transform duration-1000 group-hover:scale-105"
+                                                />
+                                                <div className="absolute inset-0 bg-background/10 mix-blend-overlay"></div>
+                                            </div>
+                                        )}
+                                        <div className="space-y-4 px-2">
+                                            <div className="flex justify-between items-baseline border-b border-accent/10 pb-3 group-hover:border-accent/40 transition-colors duration-500">
+                                                <h4 className="text-2xl font-serif italic text-foreground tracking-wide">{item.name}</h4>
+                                            </div>
+                                            <p className="font-serif italic text-lg text-foreground/50 leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+                                                {item.desc}
+                                            </p>
                                         </div>
-                                        <p className="font-sans text-sm text-[#908680] leading-relaxed group-hover:text-[#E6DCCD] transition-colors duration-300">
-                                            {item.desc}
-                                        </p>
                                     </div>
                                 ))}
                             </div>

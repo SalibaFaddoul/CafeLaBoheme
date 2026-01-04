@@ -1,282 +1,291 @@
 "use client";
 
 import React from 'react';
-import { MapPin, Coffee, Music, Star, ArrowRight, Clock } from 'lucide-react';
+import { MapPin, Clock } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Link from 'next/link';
 
 const CafeHome = () => {
     return (
-        <div className="min-h-screen bg-[#0F0A0A] text-[#E6DCCD] selection:bg-[#C89F65] selection:text-[#0F0A0A] overflow-x-hidden">
-
-            {/* Global Grain Texture (Reduced for clearer look) */}
-            <div className="fixed inset-0 grain-overlay z-50 pointer-events-none mix-blend-soft-light opacity-50"></div>
-
+        <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
             <Navigation />
 
             {/* --- Hero Section --- */}
-            <header className="relative min-h-[90vh] flex items-center justify-center px-6 pt-32 pb-24 border-b border-[#2A2422]">
-                {/* Background Atmosphere */}
-                <div className="absolute inset-0 z-0">
-                    <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#C89F65] opacity-[0.03] blur-[150px] rounded-full"></div>
-                    <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#9C5C5E] opacity-[0.03] blur-[150px] rounded-full"></div>
+            <header className="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-32">
+                {/* Warm Candlelight Atmosphere */}
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                    <div className="absolute top-1/3 left-1/4 w-[800px] h-[800px] bg-accent opacity-[0.03] blur-[200px] rounded-full"></div>
+                    <div className="absolute bottom-1/4 right-1/3 w-[600px] h-[600px] bg-secondary opacity-[0.04] blur-[150px] rounded-full"></div>
                 </div>
 
-                <div className="relative z-10 w-full max-w-7xl mx-auto text-center flex flex-col items-center">
-                    <div className="mb-12 opacity-80 animate-fade-in-up">
-                        <span className="text-xs font-sans uppercase tracking-[0.4em] text-[#C89F65] font-bold">The San Francisco Mission</span>
+                <div className="relative z-10 w-full max-w-5xl mx-auto text-center flex flex-col items-center">
+
+                    {/* Ornamental Top */}
+                    <div className="mb-16 animate-fade-in">
+                        <div className="text-accent/30 text-3xl mb-6">☙ ✦ ❧</div>
+                        <span className="text-sm tracking-[0.6em] text-accent/60 uppercase">The Mission District · San Francisco</span>
                     </div>
 
-                    {/* Single Line Title */}
-                    <h1 className="text-5xl md:text-7xl lg:text-9xl font-serif text-[#E6DCCD] tracking-tight leading-none mb-12 mix-blend-screen animate-fade-in-up delay-100 whitespace-nowrap">
-                        Café <span className="italic text-[#C89F65]">La Bohème</span>
-                    </h1>
+                    {/* Main Title - Old Print Style */}
+                    <div className="relative mb-16 animate-fade-in">
+                        <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-serif text-foreground tracking-tight leading-[0.85]">
+                            Café
+                        </h1>
+                        <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-serif italic text-accent tracking-tight leading-[0.85] -mt-4">
+                            La Bohème
+                        </h1>
+                    </div>
 
-                    <p className="text-lg md:text-xl text-[#908680] max-w-3xl mx-auto font-sans leading-relaxed mb-16 font-light animate-fade-in-up delay-200">
-                        A gathering place for politically engaged artists in the Mission District for decades.
-                        Embodying a culinary philosophy that celebrates local ingredients and community.
-                        <br />
-                        <span className="text-[#C89F65] mt-6 block text-sm uppercase tracking-widest font-bold">Since 1973</span>
+                    {/* Decorative Line */}
+                    <div className="flex items-center gap-6 mb-16 animate-fade-in">
+                        <div className="h-px w-24 bg-accent/20"></div>
+                        <span className="text-accent/40 text-xl">✦</span>
+                        <div className="h-px w-24 bg-accent/20"></div>
+                    </div>
+
+                    <p className="text-xl md:text-2xl text-foreground/50 max-w-2xl mx-auto font-serif italic leading-relaxed mb-20 animate-fade-in">
+                        A gathering place for artists, poets, and dreamers in the heart of San Francisco since 1973.
+                        Where the aroma of fresh-roasted coffee mingles with revolutionary ideas.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-8 justify-center items-center font-sans uppercase tracking-[0.2em] text-xs font-bold animate-fade-in-up delay-300">
-                        <Link href="/menu" className="group relative px-10 py-5 overflow-hidden rounded-full border border-[#C89F65] text-[#C89F65] hover:text-[#0F0A0A] transition-colors duration-500">
-                            <span className="relative z-10 flex items-center gap-3">Browse Menu</span>
-                            <div className="absolute inset-0 bg-[#C89F65] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    {/* Established Badge */}
+                    <div className="vintage-border px-12 py-6 animate-fade-in">
+                        <span className="text-[10px] tracking-[0.5em] text-accent uppercase block mb-2">Established</span>
+                        <span className="text-4xl font-serif text-foreground">1973</span>
+                    </div>
+
+                    {/* CTAs */}
+                    <div className="flex flex-col sm:flex-row gap-10 justify-center items-center mt-20 animate-fade-in">
+                        <Link href="/menu" className="group relative px-12 py-5 border-2 border-accent/30 text-accent hover:bg-accent hover:text-background transition-all duration-700">
+                            <span className="text-xs tracking-[0.3em] uppercase">View the Menu</span>
                         </Link>
-                        <a href="#visit" className="flex items-center gap-3 text-[#908680] hover:text-[#E6DCCD] transition-colors duration-300">
-                            <MapPin size={16} />
-                            Visit Us
+                        <a href="#visit" className="flex items-center gap-4 text-foreground/40 hover:text-accent transition-colors duration-500 text-sm tracking-widest uppercase">
+                            <MapPin size={14} />
+                            Find Us
                         </a>
                     </div>
                 </div>
             </header>
 
-            {/* --- Coffee & Tea Section (New) --- */}
-            <section className="py-32 px-6 md:px-12 bg-[#0F0A0A] border-b border-[#2A2422] relative overflow-hidden">
-                <div className="max-w-[1400px] mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            {/* --- Coffee & Tea Section --- */}
+            <section className="py-40 px-6 md:px-12 bg-paper relative overflow-hidden border-y-2 border-accent/10">
+                <div className="max-w-[1300px] mx-auto">
 
-                        {/* Title & Large Feature (Turkish Coffee / Espresso) */}
-                        <div className="lg:col-span-7 space-y-12">
+                    {/* Section Header */}
+                    <div className="text-center mb-32 animate-fade-in">
+                        <div className="text-accent/30 text-2xl mb-8">❧</div>
+                        <h2 className="text-5xl md:text-7xl font-serif text-foreground leading-tight mb-6">
+                            The Art of the Brew
+                        </h2>
+                        <p className="text-foreground/40 text-xl font-serif italic max-w-xl mx-auto">
+                            From the ancient spiced rituals of Turkish coffee to the precision of our hand-roasted espresso.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+
+                        {/* Large Feature */}
+                        <div className="space-y-10">
+                            <div className="vintage-border p-3">
+                                <div className="relative aspect-[4/3] overflow-hidden">
+                                    <img
+                                        src="/Espresso.png"
+                                        alt="Turkish Coffee & Espresso"
+                                        className="w-full h-full object-cover vintage-photo"
+                                    />
+                                </div>
+                            </div>
+                            <div className="text-center px-8">
+                                <h3 className="text-3xl font-serif italic text-foreground mb-4">The Ritual</h3>
+                                <p className="text-foreground/40 font-serif italic">Turkish Coffee & Hand-Roasted Espresso</p>
+                            </div>
+                        </div>
+
+                        {/* Side Grid */}
+                        <div className="grid grid-cols-2 gap-10">
+                            {/* Tea */}
+                            <div className="col-span-2 space-y-8">
+                                <div className="vintage-border p-2">
+                                    <div className="aspect-[21/9] overflow-hidden">
+                                        <img
+                                            src="/Tea.png"
+                                            alt="Aromatic Teas"
+                                            className="w-full h-full object-cover vintage-photo"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="text-center">
+                                    <h4 className="text-2xl font-serif italic text-foreground">Steeped in Silence</h4>
+                                    <p className="text-foreground/40 text-sm font-serif italic mt-2">Traditional aromatic infusions</p>
+                                </div>
+                            </div>
+
+                            {/* Latte */}
                             <div className="space-y-6">
-                                <span className="text-[#C89F65] text-xs uppercase tracking-[0.4em] font-bold block">Sip & Savor</span>
-                                <h2 className="text-5xl md:text-7xl font-serif text-[#E6DCCD] leading-tight">
-                                    The Art of <br />
-                                    <span className="text-[#C89F65] italic">the Brew</span>
-                                </h2>
-                                <p className="text-[#908680] text-lg font-sans max-w-xl leading-relaxed">
-                                    Experience the heartbeat of our heritage. From the intense, spiced ritual of traditional Turkish Coffee to the modern precision of our roasted espresso.
+                                <div className="vintage-border p-2">
+                                    <div className="aspect-square overflow-hidden">
+                                        <img
+                                            src="/Carmal Latte.png"
+                                            alt="Caramel Latte"
+                                            className="w-full h-full object-cover vintage-photo"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="text-center">
+                                    <h4 className="text-xl font-serif italic text-foreground">Sweet Twist</h4>
+                                    <p className="text-foreground/40 text-xs uppercase tracking-widest mt-1">Caramel Latte</p>
+                                </div>
+                            </div>
+
+                            {/* Smoothie */}
+                            <div className="space-y-6">
+                                <div className="vintage-border p-2">
+                                    <div className="aspect-square overflow-hidden">
+                                        <img
+                                            src="/GardenKaleSmoothie.png"
+                                            alt="Kale Smoothie"
+                                            className="w-full h-full object-cover vintage-photo"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="text-center">
+                                    <h4 className="text-xl font-serif italic text-accent">The Garden</h4>
+                                    <p className="text-foreground/40 text-xs uppercase tracking-widest mt-1">Kale Smoothie</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- Hours & Location --- */}
+            <section id="visit" className="py-40 px-6 md:px-12 bg-background relative">
+                <div className="max-w-[1100px] mx-auto">
+
+                    {/* Section Header */}
+                    <div className="text-center mb-32 animate-fade-in">
+                        <div className="text-accent/30 text-2xl mb-8">☙</div>
+                        <h2 className="text-5xl md:text-7xl font-serif text-foreground leading-tight mb-6">
+                            Find the <span className="italic text-accent">Bohème</span>
+                        </h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
+
+                        {/* Info */}
+                        <div className="vintage-border p-12 space-y-12">
+                            <div className="space-y-4">
+                                <span className="text-accent/50 text-[10px] uppercase tracking-[0.4em]">Location</span>
+                                <p className="text-2xl font-serif text-foreground leading-relaxed">
+                                    3318 24th Street<br />
+                                    Mission District<br />
+                                    San Francisco, CA
                                 </p>
                             </div>
 
-                            <div className="relative group">
-                                {/* Ambient Glow behind the container */}
-                                <div className="absolute -inset-4 bg-[#C89F65] opacity-0 group-hover:opacity-10 blur-3xl rounded-full transition-opacity duration-1000"></div>
+                            <div className="h-px bg-accent/10"></div>
 
-                                <div className="relative overflow-hidden rounded-2xl border border-[#2A2422] aspect-[16/9]">
-                                    <img
-                                        src="/Espresso.png"
-                                        alt="Traditional Turkish Coffee and Espresso"
-                                        className="w-full h-full object-cover transition-all duration-1000 scale-100 group-hover:scale-105"
-                                    />
-                                    <div className="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-[#0F0A0A] to-transparent w-full">
-                                        <h4 className="text-[#E6DCCD] font-serif text-2xl">Turkish Coffee & Espresso</h4>
-                                        <p className="text-[#C89F65] text-xs uppercase tracking-widest mt-2">Strong · Spiced · Sacred</p>
+                            <div className="space-y-6">
+                                <span className="text-accent/50 text-[10px] uppercase tracking-[0.4em] flex items-center gap-3">
+                                    <Clock size={12} />
+                                    Hours of Operation
+                                </span>
+                                <div className="space-y-3 text-lg font-serif">
+                                    <div className="flex justify-between">
+                                        <span className="text-foreground/50">Monday — Friday</span>
+                                        <span className="text-foreground">6am — 5pm</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span className="text-foreground/50">Saturday</span>
+                                        <span className="text-foreground">7am — 5pm</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <span className="text-foreground/50">Sunday</span>
+                                        <span className="text-foreground">8am — 5pm</span>
                                     </div>
                                 </div>
+                                <p className="text-xs text-secondary/60 italic">*Hours may vary on holidays</p>
                             </div>
                         </div>
 
-                        {/* Side Stack (Tea, Latte, & Smoothie) */}
-                        <div className="lg:col-span-5 space-y-12">
-
-                            {/* Tea Feature (Full Width) */}
-                            <div className="space-y-6 group relative">
-                                {/* Ambient Glow */}
-                                <div className="absolute -inset-4 bg-[#C89F65] opacity-0 group-hover:opacity-10 blur-3xl rounded-full transition-opacity duration-1000"></div>
-
-                                <div className="relative aspect-[4/3] border border-[#2A2422] overflow-hidden rounded-2xl">
-                                    <img
-                                        src="/Tea.png"
-                                        alt="Traditional Aromatic Tea"
-                                        className="w-full h-full object-cover transition-transform duration-1000 scale-100 group-hover:scale-105"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <h4 className="text-[#E6DCCD] font-serif text-2xl italic">Aromatic Teas</h4>
-                                    <p className="text-[#908680] text-sm font-sans leading-relaxed">
-                                        Steeped in tradition, our teas whisper of the old country.
-                                    </p>
-                                </div>
+                        {/* Map */}
+                        <div className="vintage-border p-3">
+                            <div className="h-[450px] w-full relative overflow-hidden">
+                                <iframe
+                                    src="https://maps.google.com/maps?q=3318+24th+Street,+San+Francisco,+CA+94110&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0, filter: 'sepia(0.5) contrast(1.1) brightness(0.85)' }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    title="Cafe La Boheme Location"
+                                ></iframe>
                             </div>
-
-                            {/* Sub-grid for Latte and Smoothie */}
-                            <div className="grid grid-cols-2 gap-8">
-                                {/* Latte Feature */}
-                                <div className="space-y-4 group relative">
-                                    {/* Ambient Glow */}
-                                    <div className="absolute -inset-4 bg-[#C89F65] opacity-0 group-hover:opacity-10 blur-3xl rounded-full transition-opacity duration-1000"></div>
-
-                                    <div className="relative aspect-square border border-[#2A2422] overflow-hidden rounded-2xl">
-                                        <img
-                                            src="/Carmal Latte.png"
-                                            alt="Velvety Caramel Latte"
-                                            className="w-full h-full object-cover transition-transform duration-1000 scale-100 group-hover:scale-110"
-                                        />
-                                    </div>
-                                    <div className="space-y-1">
-                                        <h4 className="text-[#E6DCCD] font-serif text-xl italic">Sweet Twist</h4>
-                                        <p className="text-[#908680] text-xs font-sans leading-relaxed">
-                                            Caramel Latte.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* Kale Smoothie Feature */}
-                                <div className="space-y-4 group relative">
-                                    {/* Ambient Glow */}
-                                    <div className="absolute -inset-4 bg-[#C89F65] opacity-0 group-hover:opacity-10 blur-3xl rounded-full transition-opacity duration-1000"></div>
-
-                                    <div className="relative aspect-square border border-[#2A2422] overflow-hidden rounded-2xl">
-                                        <img
-                                            src="/GardenKaleSmoothie.png"
-                                            alt="Fresh Garden Kale Smoothie"
-                                            className="w-full h-full object-cover transition-transform duration-1000 scale-100 group-hover:scale-110"
-                                        />
-                                    </div>
-                                    <div className="space-y-1">
-                                        <h4 className="text-[#C89F65] font-serif text-xl italic">The Garden</h4>
-                                        <p className="text-[#908680] text-xs font-sans leading-relaxed">
-                                            Kale Smoothie.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
-
                     </div>
                 </div>
             </section>
 
-            {/* --- Hours & Location (New Section) --- */}
-            <section id="visit" className="py-24 px-6 md:px-12 bg-[#120C0B] border-b border-[#2A2422]">
-                <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                    <div className="text-center md:text-left">
-                        <h2 className="text-4xl text-[#E6DCCD] font-serif mb-8 flex items-center justify-center md:justify-start gap-4">
-                            <Clock className="text-[#C89F65]" size={32} />
-                            Hours & Location
-                        </h2>
-                        <div className="space-y-6 font-sans text-[#908680] text-lg leading-relaxed">
-                            <div className="flex flex-col gap-2">
-                                <span className="text-[#C89F65] text-xs uppercase tracking-widest font-bold">Address</span>
-                                <p className="text-[#E6DCCD]">3318 24th Street & Mission<br />San Francisco, CA 94110</p>
-                            </div>
-                            <div className="h-[1px] w-12 bg-[#2A2422] mx-auto md:mx-0"></div>
-                            <div className="flex flex-col gap-2">
-                                <span className="text-[#C89F65] text-xs uppercase tracking-widest font-bold">Hours</span>
-                                <div className="space-y-1">
-                                    <div className="flex justify-between md:justify-start gap-8">
-                                        <span className="w-24">Mon - Fri</span>
-                                        <span className="text-[#E6DCCD]">6:00 AM — 5:00 PM</span>
-                                    </div>
-                                    <div className="flex justify-between md:justify-start gap-8">
-                                        <span className="w-24">Saturday</span>
-                                        <span className="text-[#E6DCCD]">7:00 AM — 5:00 PM</span>
-                                    </div>
-                                    <div className="flex justify-between md:justify-start gap-8">
-                                        <span className="w-24">Sunday</span>
-                                        <span className="text-[#E6DCCD]">8:00 AM — 5:00 PM</span>
-                                    </div>
-                                </div>
-                                <p className="text-xs text-[#9C5C5E] mt-2 italic">*Hours may vary at times and holidays.</p>
-                            </div>
-                        </div>
-                    </div>
-                    {/* Visual Map Placeholder or Authentic Image */}
-                    <div className="h-[400px] w-full border border-[#2A2422] relative group overflow-hidden">
-                        <iframe
-                            src="https://maps.google.com/maps?q=3318+24th+Street,+San+Francisco,+CA+94110&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0, filter: 'grayscale(1) invert(1)' }}
-                            allowFullScreen
-                            loading="lazy"
-                            title="Cafe La Boheme Location"
-                        ></iframe>
-                        <div className="absolute inset-0 border-[0.5px] border-[#C89F65] m-4 opacity-20 pointer-events-none"></div>
-                    </div>
-                </div>
-            </section>
+            {/* --- Culinary Philosophy --- */}
+            <section className="py-40 px-6 md:px-12 bg-paper relative border-t-2 border-accent/10">
 
-
-            {/* --- Chef Recommendations --- */}
-            <section className="py-40 px-6 md:px-12 bg-[#0F0A0A] relative">
-                <div className="max-w-[1200px] mx-auto text-center mb-24">
-                    <h2 className="text-4xl md:text-5xl text-[#E6DCCD] font-serif mb-6 leading-tight">
-                        Culinary <span className="text-[#C89F65] italic">Philosophy</span>
+                {/* Section Header */}
+                <div className="max-w-[900px] mx-auto text-center mb-32 animate-fade-in">
+                    <div className="text-accent/30 text-2xl mb-8">✦</div>
+                    <h2 className="text-5xl md:text-7xl font-serif text-foreground leading-tight mb-8">
+                        Culinary Philosophy
                     </h2>
-                    <p className="text-[#908680] max-w-2xl mx-auto font-sans text-lg font-light leading-relaxed">
-                        With a focus on fresh salads, hearty soups, and delightful sandwiches, Café La Bohème offers a menu that reflects both comfort and creativity.
-                        A beloved spot where locals start their day and friends gather for community.
+                    <p className="text-foreground/40 text-xl font-serif italic max-w-2xl mx-auto">
+                        Comfort, creativity, and the preservation of flavor. From the heart of the Mission to the traditions of Home.
                     </p>
                 </div>
 
-                <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-b border-[#2A2422] divide-y md:divide-y-0 md:divide-x divide-[#2A2422]">
+                <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
                     {[
                         {
                             cat: "Signature Dessert",
                             title: "The Honey Cake",
-                            desc: "A traditional house-made Palestinian cake made with semolina and sugar, soaked in aromatic syrup.",
-                            price: "Signature",
+                            desc: "Traditional house-made Palestinian cake with semolina, soaked in aromatic syrup.",
                             image: "/HoneyCake.png"
                         },
                         {
                             cat: "Local Favorite",
-                            title: "The Mexican Mocha",
-                            desc: "A soul-warming twist on the classic. Rich chocolate and espresso spiced with cinnamon, nutmeg, and pure deliciousness.",
-                            price: "Spiced",
+                            title: "Mexican Mocha",
+                            desc: "Rich chocolate and espresso spiced with cinnamon and nutmeg.",
                             image: "/mexican-mocha.png"
                         },
                         {
                             cat: "Taste of Home",
                             title: "The Mezza",
-                            desc: "A generous selection of our finest appetizers. Hummus, baba ghanoush, tabouli, falafel & pita. Perfect for sharing.",
-                            price: "Shareable",
+                            desc: "Hummus, baba ghanoush, tabouli, falafel & warm pita.",
                             image: "/Mezza%20Cafe%20La%20Boheme.png"
                         }
                     ].map((item, i) => (
-                        <div key={i} className="p-12 md:p-16 hover:bg-[#120C0B] transition-colors duration-500 group cursor-default text-center flex flex-col items-center">
-                            <span className="text-[#9C5C5E] font-bold text-xs uppercase tracking-[0.2em] block mb-8">{item.cat}</span>
-
-                            {/* Image Slot */}
-                            <div className="w-full aspect-square md:aspect-[4/3] relative mb-8 group-hover:scale-[1.02] transition-transform duration-700">
-                                {/* Glow Effect */}
-                                <div className="absolute -inset-4 bg-[#C89F65] opacity-0 group-hover:opacity-10 blur-3xl rounded-full transition-opacity duration-700"></div>
-
-                                <div className="relative h-full w-full overflow-hidden border border-[#2A2422] bg-[#0F0A0A] rounded-2xl">
-                                    <div className="absolute inset-0 bg-[#C89F65] opacity-5"></div>
+                        <div key={i} className="group text-center">
+                            <div className="vintage-border p-3 mb-10">
+                                <div className="aspect-[4/5] overflow-hidden">
                                     <img
                                         src={item.image}
                                         alt={item.title}
-                                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 scale-100 group-hover:scale-105 transform"
+                                        className="w-full h-full object-cover vintage-photo group-hover:scale-105 transition-transform duration-1000"
                                     />
                                 </div>
                             </div>
-
-                            <span className="text-[#9C5C5E] font-bold text-xs uppercase tracking-[0.2em] block mb-4"></span>
-                            <h3 className="text-3xl font-serif text-[#E6DCCD] mb-6">{item.title}</h3>
-                            <p className="text-[#908680] font-sans leading-relaxed mb-6">{item.desc}</p>
-                            <span className="font-sans text-xs font-bold text-[#C89F65] uppercase tracking-widest">{item.price}</span>
+                            <span className="text-secondary/60 text-[10px] uppercase tracking-[0.3em] block mb-4">{item.cat}</span>
+                            <h3 className="text-3xl font-serif text-foreground mb-4 group-hover:text-accent transition-colors duration-500">{item.title}</h3>
+                            <p className="text-foreground/40 font-serif italic px-4">{item.desc}</p>
                         </div>
                     ))}
+                </div>
+
+                {/* Bottom Ornament */}
+                <div className="text-center mt-32">
+                    <div className="text-accent/20 text-3xl">☙ ✦ ❧</div>
                 </div>
             </section>
 
             <Footer />
-
         </div>
     );
 };
