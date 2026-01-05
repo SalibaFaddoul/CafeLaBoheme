@@ -179,12 +179,12 @@ const CafeHome = () => {
                         {[
                             {
                                 name: "Turmeric Latte",
-                                desc: "Golden milk with warming spices and a hint of honey.",
+                                desc: "Mixed turmeric blend and espresso latte.",
                                 image: "/Tumeric Latte.png"
                             },
                             {
                                 name: "Pistachio Latte",
-                                desc: "Silky espresso with house-made pistachio cream.",
+                                desc: "Silky espresso with pistachio syrup.",
                                 image: "/Pistachio.png"
                             },
                             {

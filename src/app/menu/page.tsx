@@ -160,8 +160,8 @@ export default function MenuPage() {
                                 {[
                                     { name: "Mexican Mocha", desc: "Spiced chocolate espresso.", image: "/mexican-mocha.png" },
                                     { name: "Turkish Coffee", desc: "Traditional, finely ground & brewed in a cezve.", image: "/Turkish.png" },
-                                    { name: "Turmeric Latte", desc: "Golden milk with warming spices.", image: "/Tumeric Latte.png" },
-                                    { name: "Pistachio Latte", desc: "Silky espresso with pistachio cream.", image: "/Pistachio.png" },
+                                    { name: "Turmeric Latte", desc: "Mixed turmeric blend and espresso latte.", image: "/Tumeric Latte.png" },
+                                    { name: "Pistachio Latte", desc: "Silky espresso with pistachio syrup.", image: "/Pistachio.png" },
                                     { name: "Cardamom Latte", desc: "Aromatic cardamom infused latte.", image: "/Cardamom.png" },
                                     { name: "Lavender Latte", desc: "Delicate lavender meets bold espresso.", image: "/Lavender.png" },
                                     { name: "Kale Smoothie", desc: "Green power blend.", image: "/GardenKaleSmoothie.png" },
